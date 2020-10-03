@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row"><header></header></div>
+        
+    <hr class="hr-primary" />
+    
+    <div class="row mb-5"><router-outlet></router-outlet></div>
+    
+    <hr class="hr-primary" />
+    
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Mes appareils</h2>
+            <p>Mis à jour : {{ lastUpdate | async | date: 'dd/M/yyyy H:mm:ss' }}</p>
+            <ul class="list-group">
+                <!-- ngFor : pour boucler sur un tableau d'objets -->
+                <appareil *ngFor="let appareil of appareils"
+                    [appareilName]="appareil.name"
+                    [appareilStatus]="appareil.status">
+                </appareil>
+            </ul>
+            
+            <!-- ngIf : affiche (ici) le button si la condition est respectée -->
+            <!-- ajout de l'attribut disabled si !isAuth -->
+            <!-- appel de onAllumer() quand l'user clique dessus -->
+            <button class="btn btn-success mt-2" 
+                    *ngIf="allAppareilsStatus !== 'allumé'"
+                    [disabled]="!isAuth" 
+                    (click)="changeAppareilsStatus('allumé')">
+                Tout allumer
+            </button>
+            
+            <!-- ngIf : affiche (ici) le button si la condition est respectée -->
+            <!-- ajout de l'attribut disabled si !isAuth -->
+            <!-- appel de onAllumer() quand l'user clique dessus -->
+            <button class="btn btn-success mt-2" 
+                    *ngIf="(allAppareilsStatus !== '' && allAppareilsStatus !== 'éteint')"
+                    [disabled]="!isAuth" 
+                    (click)="changeAppareilsStatus('éteint')">
+                Tout éteindre
+            </button>
+        </div>
+    </div>
+</div> 
