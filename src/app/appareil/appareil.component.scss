@@ -1,0 +1,9 @@
+/* Déclaration des variables que l'on peut réutiliser à différents endroits du CSS '*/
+$bg-color: red;
+ 
+/* CSS */
+.cadre-rouge {
+    width:20px;
+    height:20px;
+    background-color:$bg-color;
+}

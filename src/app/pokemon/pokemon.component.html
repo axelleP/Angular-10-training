@@ -1,0 +1,24 @@
+<h2 class="title is-1 mb-3">Pokémon</h2>
+
+Documentation API :<a href="https://pokeapi.co/" class="btn btn-link" target='_blank'>PokéApi</a>
+
+<!-- ngModel : liaison de l'input avec la variable id -->
+<input type="number" class="form-control" 
+       [(ngModel)]="id"
+       (keyup)="getPokemon()"
+>
+
+<div class="card w-100">
+    <div class="row no-gutters">
+        <!-- {{ species?.color.name }} : affichage d'une variable
+        ? : permet de ne pas avoir d'erreur si la variable n'existe pas encore -->
+        <div class="col-md-4" style="background-color:{{ species?.color.name }}"></div>
+
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title text-uppercase">{{ pokemon?.name }}</h5>
+                <p class="card-text">Characteristic : {{ characteristics?.descriptions[2].description }}</p>
+            </div>
+        </div>
+    </div>
+</div>

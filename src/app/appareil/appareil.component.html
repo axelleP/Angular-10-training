@@ -1,0 +1,20 @@
+<!-- ngClass : gestion des classes de l'attribut HTML
+ ajout de la classe list-group-item-success ou list-group-item-danger si leur condition est respectée -->
+<li [ngClass]="{
+    'list-group-item': true,
+    'list-group-item-success': appareilStatus === 'allumé',
+    'list-group-item-danger': appareilStatus === 'éteint'
+}">
+    
+    <!-- ngIf : affiche (ici) la div si la condition est respectée -->
+    <div class="cadre-rouge"
+        *ngIf="appareilStatus === 'éteint'">
+    </div>
+    
+    <!-- ngStyle : gestion de l'attribut style 
+    remplit la propriété color selon la fonction getColor() -->
+    <h2 [ngStyle]="{color: getColor()}">Appareil : {{ appareilName }} -- Statut : {{ appareilStatus }}</h2>
+    
+    <!-- ngModel : liaison de l'input avec la variable appareilName -->
+    <input type="text" class="form-control" [(ngModel)]="appareilName">
+</li>
