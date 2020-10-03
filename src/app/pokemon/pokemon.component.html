@@ -3,9 +3,10 @@
 Documentation API :<a href="https://pokeapi.co/" class="btn btn-link" target='_blank'>PokéApi</a>
 
 <!-- ngModel : liaison de l'input avec la variable id -->
-<input type="number" class="form-control" 
-       [(ngModel)]="id"
-       (keyup)="getPokemon()"
+<input type="number" class="form-control" min="1" max="894"
+    [(ngModel)]="id"
+    (keyup)="getPokemon()"
+    (click)="getPokemon()"
 >
 
 <div class="card w-100">

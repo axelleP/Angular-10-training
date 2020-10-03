@@ -12,7 +12,6 @@ import { PokemonInterface } from '../interfaces/pokemon.interface'
 
 export class PokemonService {
     constructor(private http: HttpClient) {}
-    //id: number = (Math.floor(Math.random() * 893) + 1)// returns a random integer from 1 to 893
     
     /* fonctions pour récupérer les infos depuis l'api 
      * apiBaseUrl : déclaré dans le fichier environment.ts */
